@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>واجهات سَنَد</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%;background:#0F1115;overflow:hidden}
+body{font-family:'Tajawal',sans-serif}
+a{color:#043380}a:hover{color:#022559}
+#stage{position:absolute;top:0;left:0;width:390px;height:844px;transform-origin:0 0;background:#F7F8FA;overflow:hidden}
+.screen{display:none;width:390px;height:844px}
+.screen.active{display:block}
+</style>
+</head>
+<body>
+<div id="stage">
+<section class="screen" id="s-Main" data-id="Main">
+
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F7F8FA; font-family: 'Tajawal', sans-serif; color: #0B2559; display: flex; flex-direction: column; overflow: hidden; position: relative">
+  <div style="background: #043380; height: 372px; box-sizing: border-box; padding: 52px 28px 0; display: flex; flex-direction: column; align-items: center; gap: 12px; border-radius: 0 0 40px 40px">
+    <div style="width: 84px; height: 84px; border-radius: 28px; background: #FFFFFF; display: flex; align-items: center; justify-content: center">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#043380" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22 24 7l18 15"/><path d="M10 20v20h28V20"/><path d="M13 29h6l3-5 4 9 3-4h6"/></svg>
+    </div>
+    <div style="font-size: 44px; font-weight: 800; color: #FFFFFF; line-height: 1.1">سَنَد</div>
+    <div style="font-size: 16px; font-weight: 500; color: #BFE0FA; text-align: center; line-height: 1.6">مراقبة ذكية.. لحياة أكثر أمانًا واطمئنانًا</div>
+  </div>
+  <div style="margin: -36px 24px 0; background: #FFFFFF; border-radius: 24px; padding: 24px 20px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 8px 24px rgba(4,51,128,0.10)">
+    <div style="font-size: 22px; font-weight: 700">أهلًا بك</div>
+    <div style="display: flex; gap: 8px; background: #EEF2F9; border-radius: 14px; padding: 4px">
+      <button onclick="act('pickPatient',event)" style="flex: 1 1 0; min-height: 44px; border: 0; border-radius: 11px; background: var(--patientBg); color: var(--patientColor); font-family: inherit; font-size: 15px; font-weight: 700; cursor: pointer">مريض</button>
+      <button onclick="act('pickCaregiver',event)" style="flex: 1 1 0; min-height: 44px; border: 0; border-radius: 11px; background: var(--caregiverBg); color: var(--caregiverColor); font-family: inherit; font-size: 15px; font-weight: 700; cursor: pointer">مقدم رعاية</button>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <label for="user" style="font-size: 14px; font-weight: 500; color: #3B4C75">اسم المستخدم</label>
+      <input id="user" type="text" placeholder="أدخل اسم المستخدم" style="min-height: 48px; box-sizing: border-box; border: 1.5px solid #C9D3E6; border-radius: 14px; padding: 0 14px; font-family: inherit; font-size: 16px; color: #0B2559; background: #FFFFFF; text-align: right">
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <label for="phone" style="font-size: 14px; font-weight: 500; color: #3B4C75">رقم الجوال</label>
+      <input id="phone" type="tel" placeholder="05xxxxxxxx" style="min-height: 48px; box-sizing: border-box; border: 1.5px solid #C9D3E6; border-radius: 14px; padding: 0 14px; font-family: inherit; font-size: 16px; color: #0B2559; background: #FFFFFF; text-align: right">
+    </div>
+    <a href="#" data-href="loginHref" style="display: flex; align-items: center; justify-content: center; min-height: 52px; border-radius: 16px; background: #043380; color: #FFFFFF; font-size: 17px; font-weight: 700; text-decoration: none">تسجيل الدخول</a>
+  </div>
+</div>
+</section>
+<section class="screen" id="s-Home" data-id="Home">
+
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F7F8FA; font-family: 'Tajawal', sans-serif; color: #0B2559; display: flex; flex-direction: column; overflow: hidden">
+  <div style="padding: 52px 20px 0; display: flex; flex-direction: column; gap: 2px">
+    <div style="font-size: 14px; color: #3B4C75">صباح الخير</div>
+    <div style="font-size: 24px; font-weight: 800">أم محمد</div>
+  </div>
+  <div style="margin: 14px 20px 0; background: #043380; border-radius: 24px; padding: 18px 20px; display: flex; align-items: center; gap: 14px">
+    <div style="width: 48px; height: 48px; border-radius: 50%; background: #1F9D63; display: flex; align-items: center; justify-content: center; flex: none">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 2px">
+      <div style="font-size: 20px; font-weight: 800; color: #FFFFFF">حالتك مستقرة</div>
+      <div style="font-size: 14px; color: #BFE0FA">آخر قياس قبل دقيقتين</div>
+    </div>
+  </div>
+  <div style="margin: 12px 20px 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+    <div style="background: #FFFFFF; border-radius: 20px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
+      <div style="font-size: 14px; color: #3B4C75; font-weight: 500">نبض القلب</div>
+      <div style="display: flex; align-items: baseline; gap: 6px"><span style="font-size: 32px; font-weight: 800">72</span><span style="font-size: 13px; color: #3B4C75">نبضة/د</span></div>
+    </div>
+    <div style="background: #FFFFFF; border-radius: 20px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
+      <div style="font-size: 14px; color: #3B4C75; font-weight: 500">الأكسجين</div>
+      <div style="display: flex; align-items: baseline; gap: 6px"><span style="font-size: 32px; font-weight: 800">97</span><span style="font-size: 13px; color: #3B4C75">%</span></div>
+    </div>
+    <div style="background: #FFFFFF; border-radius: 20px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
+      <div style="font-size: 14px; color: #3B4C75; font-weight: 500">كشف السقوط</div>
+      <div style="font-size: 18px; font-weight: 800; color: #17744B; padding-top: 6px">لا يوجد سقوط</div>
+    </div>
+    <a href="#LinkDevice" style="background: #FFFFFF; border-radius: 20px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; text-decoration: none; color: inherit">
+      <div style="font-size: 14px; color: #3B4C75; font-weight: 500">ساعة سَنَد</div>
+      <div style="display: flex; align-items: baseline; gap: 6px"><span style="font-size: 32px; font-weight: 800">82</span><span style="font-size: 13px; color: #3B4C75">% بطارية</span></div>
+    </a>
+  </div>
+  <div style="margin: 12px 20px 0; background: #EAF3FC; border: 1.5px solid #B9D8F4; border-radius: 22px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+    <div style="display: flex; align-items: center; gap: 10px">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#043380" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.2 8 8 9 4.8-1 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg>
+      <div style="font-size: 17px; font-weight: 800">الحماية التلقائية مفعّلة</div>
+    </div>
+    <div style="font-size: 14px; color: #2C3D66; line-height: 1.7">عند رصد خطر يصل التنبيه لمقدم الرعاية تلقائيًا، ويُبلَّغ الإسعاف في الحالات الحرجة.</div>
+  </div>
+  <a href="#Sos" style="margin: 12px 20px 0; min-height: 68px; border-radius: 20px; background: #C62828; border: 4px solid #F8D3D3; box-sizing: border-box; color: #FFFFFF; display: flex; align-items: center; justify-content: center; gap: 12px; text-decoration: none">
+    <span style="font-size: 30px; font-weight: 800; letter-spacing: 1px">SOS</span>
+    <span style="font-size: 16px; font-weight: 700">أشعر بتعب، أحتاج مساعدة</span>
+  </a>
+  <a href="#Alert" style="margin: 10px 20px 0; min-height: 44px; border-radius: 14px; border: 1.5px solid #043380; background: #FFFFFF; color: #043380; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; text-decoration: none">تجربة العرض: رصد الساعة لحالة غير طبيعية</a>
+  <div style="margin-top: auto; background: #FFFFFF; border-radius: 24px 24px 0 0; padding: 10px 12px 22px; display: flex; justify-content: space-around; box-shadow: 0 -4px 16px rgba(4,51,128,0.08)">
+    <a href="#Home" style="min-width: 64px; min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; font-size: 12px; font-weight: 700; color: #043380">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#043380" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11 12 4l8 7"/><path d="M6 10v10h12V10"/></svg>الرئيسية</a>
+    <a href="#Vitals" style="min-width: 64px; min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; font-size: 12px; font-weight: 500; color: #3B4C75">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B4C75" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3-6 4 12 3-6h4"/></svg>القياسات</a>
+    <a href="#LinkCaregiver" style="min-width: 64px; min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; font-size: 12px; font-weight: 500; color: #3B4C75">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B4C75" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><path d="M17 11v6M14 14h6"/></svg>المتابعون</a>
+  </div>
+</div>
+</section>
+<section class="screen" id="s-Vitals" data-id="Vitals">
+
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F7F8FA; font-family: 'Tajawal', sans-serif; color: #0B2559; display: flex; flex-direction: column; overflow: hidden">
+  <div style="padding: 56px 20px 0; display: flex; align-items: center; gap: 12px">
+    <a href="#Home" aria-label="رجوع" style="width: 44px; height: 44px; border-radius: 14px; background: #FFFFFF; display: flex; align-items: center; justify-content: center">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#043380" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+    </a>
+    <div style="font-size: 24px; font-weight: 800">القياسات الحيوية</div>
+  </div>
+  <div style="margin: 16px 20px 0; display: flex; gap: 8px; background: #EEF2F9; border-radius: 14px; padding: 4px">
+    <button style="flex: 1 1 0; min-height: 44px; border: 0; border-radius: 11px; background: #043380; color: #FFFFFF; font-family: inherit; font-size: 15px; font-weight: 700">اليوم</button>
+    <button style="flex: 1 1 0; min-height: 44px; border: 0; border-radius: 11px; background: transparent; color: #3B4C75; font-family: inherit; font-size: 15px; font-weight: 700">الأسبوع</button>
+    <button style="flex: 1 1 0; min-height: 44px; border: 0; border-radius: 11px; background: transparent; color: #3B4C75; font-family: inherit; font-size: 15px; font-weight: 700">الشهر</button>
+  </div>
+  <div style="margin: 14px 20px 0; background: #FFFFFF; border-radius: 22px; padding: 18px 16px 14px; display: flex; flex-direction: column; gap: 14px">
+    <div style="display: flex; justify-content: space-between; align-items: baseline">
+      <div style="font-size: 16px; font-weight: 700">نبض القلب</div>
+      <div style="font-size: 14px; color: #3B4C75">المتوسط <span style="font-weight: 800; color: #0B2559">74</span> نبضة/د</div>
+    </div>
+    <div style="height: 150px; display: flex; align-items: flex-end; gap: 8px">
+      <div style="flex: 1 1 0; height: 52%; background: #72B8EE; border-radius: 8px 8px 0 0"></div>
+      <div style="flex: 1 1 0; height: 58%; background: #72B8EE; border-radius: 8px 8px 0 0"></div>
+      <div style="flex: 1 1 0; height: 66%; background: #72B8EE; border-radius: 8px 8px 0 0"></div>
+      <div style="flex: 1 1 0; height: 80%; background: #043380; border-radius: 8px 8px 0 0"></div>
+      <div style="flex: 1 1 0; height: 70%; background: #72B8EE; border-radius: 8px 8px 0 0"></div>
+      <div style="flex: 1 1 0; height: 62%; background: #72B8EE; border-radius: 8px 8px 0 0"></div>
+      <div style="flex: 1 1 0; height: 56%; background: #72B8EE; border-radius: 8px 8px 0 0"></div>
+    </div>
+    <div style="display: flex; gap: 8px; font-size: 12px; color: #3B4C75; text-align: center">
+      <div style="flex: 1 1 0">٦ ص</div><div style="flex: 1 1 0">٩ ص</div><div style="flex: 1 1 0">١٢ م</div><div style="flex: 1 1 0">٣ م</div><div style="flex: 1 1 0">٦ م</div><div style="flex: 1 1 0">٩ م</div><div style="flex: 1 1 0">١٢ ص</div>
+    </div>
+  </div>
+  <div style="margin: 12px 20px 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+    <div style="background: #FFFFFF; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 6px">
+      <div style="font-size: 14px; color: #3B4C75; font-weight: 500">مستوى الأكسجين</div>
+      <div style="display: flex; align-items: baseline; gap: 6px"><span style="font-size: 30px; font-weight: 800">97</span><span style="font-size: 14px; color: #3B4C75">%</span></div>
+      <div style="font-size: 13px; font-weight: 700; color: #17744B">ضمن المعدل الطبيعي</div>
+    </div>
+    <div style="background: #FFFFFF; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 6px">
+      <div style="font-size: 14px; color: #3B4C75; font-weight: 500">حالة السقوط</div>
+      <div style="font-size: 20px; font-weight: 800; padding-top: 4px">لا يوجد</div>
+      <div style="font-size: 13px; font-weight: 700; color: #17744B">آخر ٧ أيام</div>
+    </div>
+  </div>
+  <div style="margin: 12px 20px 0; background: #FFFFFF; border-radius: 20px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
+    <div style="font-size: 14px; color: #3B4C75; font-weight: 500">آخر قياس</div>
+    <div style="font-size: 16px; font-weight: 700">اليوم ١:٢٣ م · الساعة الذكية</div>
+  </div>
+  <div style="margin-top: auto; background: #FFFFFF; border-radius: 24px 24px 0 0; padding: 10px 12px 22px; display: flex; justify-content: space-around; box-shadow: 0 -4px 16px rgba(4,51,128,0.08)">
+    <a href="#Home" style="min-width: 64px; min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; font-size: 12px; font-weight: 500; color: #3B4C75">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B4C75" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11 12 4l8 7"/><path d="M6 10v10h12V10"/></svg>الرئيسية</a>
+    <a href="#Vitals" style="min-width: 64px; min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; font-size: 12px; font-weight: 700; color: #043380">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#043380" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3-6 4 12 3-6h4"/></svg>القياسات</a>
+    <a href="#LinkCaregiver" style="min-width: 64px; min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; font-size: 12px; font-weight: 500; color: #3B4C75">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B4C75" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><path d="M17 11v6M14 14h6"/></svg>المتابعون</a>
+  </div>
+</div>
+</section>
+<section class="screen" id="s-LinkDevice" data-id="LinkDevice">
+
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F7F8FA; font-family: 'Tajawal', sans-serif; color: #0B2559; display: flex; flex-direction: column; overflow: hidden">
+  <div style="padding: 52px 20px 0; display: flex; align-items: center; gap: 12px">
+    <a href="#Home" aria-label="رجوع" style="width: 44px; height: 44px; border-radius: 14px; background: #FFFFFF; display: flex; align-items: center; justify-content: center">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#043380" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+    </a>
+    <div style="font-size: 24px; font-weight: 800">ربط ساعة سَنَد</div>
+  </div>
+  <div style="margin: 12px 24px 0; font-size: 15px; color: #3B4C75; line-height: 1.7">اربط ساعة سَنَد الخاصة بك بالتطبيق لبدء مراقبة النبض والأكسجين وكشف السقوط</div>
+  <div style="margin: 14px 20px 0; background: #043380; border-radius: 24px; padding: 20px 16px; display: flex; flex-direction: column; align-items: center; gap: 10px">
+    <div style="width: 76px; height: 76px; border-radius: 50%; border: 3px solid #72B8EE; display: flex; align-items: center; justify-content: center">
+      <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="6" width="10" height="12" rx="3"/><path d="M9 6l1-3h4l1 3M9 18l1 3h4l1-3"/><path d="M12 10v3l2 1"/></svg>
+    </div>
+    <div style="font-size: 18px; font-weight: 800; color: #FFFFFF"><span data-t="statusTitle"></span></div>
+    <div style="font-size: 14px; color: #BFE0FA; text-align: center"><span data-t="statusSub"></span></div>
+  </div>
+  <div style="margin: 14px 20px 0; background: #FFFFFF; border-radius: 20px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px">
+    <div style="font-size: 15px; font-weight: 800">خطوات الربط</div>
+    <div style="font-size: 14px; color: #3B4C75; line-height: 1.6">١. شغّل الساعة واضغط زر الربط ٣ ثوانٍ</div>
+    <div style="font-size: 14px; color: #3B4C75; line-height: 1.6">٢. قرّب الساعة من الجوال وفعّل البلوتوث</div>
+    <div style="font-size: 14px; color: #3B4C75; line-height: 1.6">٣. أدخل رقم الساعة المطبوع على ظهرها</div>
+  </div>
+  <div style="margin: 12px 20px 0; background: #FFFFFF; border-radius: 20px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px">
+    <label for="wid" style="font-size: 14px; font-weight: 500; color: #3B4C75">رقم الساعة</label>
+    <input id="wid" type="text" placeholder="مثال: SW-10234" data-v="wid" onchange="act('setWid',event)" style="min-height: 48px; box-sizing: border-box; border: 1.5px solid #C9D3E6; border-radius: 14px; padding: 0 14px; font-family: inherit; font-size: 16px; color: #0B2559; background: #FFFFFF; text-align: right">
+    <div data-if="showError" style="display:none">
+      <div style="font-size: 13px; font-weight: 700; color: #A51F1F">أدخل رقم الساعة أولًا</div>
+    </div>
+    <button onclick="act('link',event)" style="min-height: 50px; border: 0; border-radius: 14px; background: var(--btnBg); color: #FFFFFF; font-family: inherit; font-size: 16px; font-weight: 700; cursor: pointer"><span data-t="btnLabel"></span></button>
+  </div>
+  <div style="margin: auto 20px 28px; display: flex; flex-direction: column; gap: 6px">
+    <a href="#LinkCaregiver" style="display: flex; align-items: center; justify-content: center; min-height: 52px; border-radius: 16px; background: #043380; color: #FFFFFF; font-size: 17px; font-weight: 700; text-decoration: none">متابعة</a>
+    <a href="#LinkCaregiver" style="text-align: center; font-size: 14px; font-weight: 700; padding: 8px">تخطي الآن</a>
+  </div>
+</div>
+</section>
+<section class="screen" id="s-LinkCaregiver" data-id="LinkCaregiver">
+
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F7F8FA; font-family: 'Tajawal', sans-serif; color: #0B2559; display: flex; flex-direction: column; overflow: hidden">
+  <div style="padding: 52px 20px 0; display: flex; flex-direction: column; gap: 4px">
+    <div style="font-size: 24px; font-weight: 800">مقدمو الرعاية</div>
+    <div style="font-size: 14px; color: #3B4C75; line-height: 1.6">من تضيفهم يصلهم تنبيه فوري عند أي حالة طارئة</div>
+  </div>
+  <div style="flex: 1 1 0; min-height: 0; overflow-y: auto; padding-bottom: 12px">
+    <div style="margin: 12px 20px 0; background: #FFFFFF; border-radius: 22px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <label for="cn" style="font-size: 14px; font-weight: 500; color: #3B4C75">اسم مقدم الرعاية</label>
+        <input id="cn" type="text" data-v="name" onchange="act('setName',event)" style="min-height: 46px; box-sizing: border-box; border: 1.5px solid #C9D3E6; border-radius: 14px; padding: 0 14px; font-family: inherit; font-size: 16px; color: #0B2559; background: #FFFFFF; text-align: right">
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <label for="cp" style="font-size: 14px; font-weight: 500; color: #3B4C75">رقم الجوال</label>
+        <input id="cp" type="tel" placeholder="05xxxxxxxx" data-v="phone" onchange="act('setPhone',event)" style="min-height: 46px; box-sizing: border-box; border: 1.5px solid #C9D3E6; border-radius: 14px; padding: 0 14px; font-family: inherit; font-size: 16px; color: #0B2559; background: #FFFFFF; text-align: right">
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <label for="cr" style="font-size: 14px; font-weight: 500; color: #3B4C75">صلة القرابة</label>
+        <input id="cr" type="text" placeholder="ابنة، ابن، جار..." data-v="relation" onchange="act('setRelation',event)" style="min-height: 46px; box-sizing: border-box; border: 1.5px solid #C9D3E6; border-radius: 14px; padding: 0 14px; font-family: inherit; font-size: 16px; color: #0B2559; background: #FFFFFF; text-align: right">
+      </div>
+      <div data-if="showError" style="display:none">
+        <div style="font-size: 13px; font-weight: 700; color: #A51F1F">أدخل الاسم ورقم الجوال أولًا</div>
+      </div>
+      <div data-if="showSent" style="display:none">
+        <div style="background: #DDF3E6; color: #115C38; border-radius: 12px; padding: 10px 12px; font-size: 14px; font-weight: 700">تم إرسال الدعوة، وستظهر في القائمة بانتظار القبول</div>
+      </div>
+      <button onclick="act('send',event)" style="min-height: 50px; border: 0; border-radius: 16px; background: #043380; color: #FFFFFF; font-family: inherit; font-size: 17px; font-weight: 700; cursor: pointer">إرسال دعوة الربط</button>
+    </div>
+    <div style="margin: 16px 20px 8px; font-size: 16px; font-weight: 800">المرتبطون حاليًا</div>
+    <div style="margin: 0 20px; display: flex; flex-direction: column; gap: 10px">
+      <template data-for="rows" data-as="r">
+        <div style="background: #FFFFFF; border-radius: 18px; padding: 12px 14px; display: flex; align-items: center; justify-content: space-between; gap: 10px">
+          <div style="display: flex; flex-direction: column">
+            <div style="font-size: 16px; font-weight: 700">{{r.title}}</div>
+            <div style="font-size: 13px; color: #3B4C75">{{r.phone}}</div>
+          </div>
+          <div style="padding: 6px 12px; border-radius: 999px; background: {{r.bg}}; color: {{r.fg}}; font-size: 13px; font-weight: 700">{{r.badge}}</div>
+        </div>
+      </template><div data-slot="rows" style="display: contents"></div>
+    </div>
+  </div>
+  <div style="background: #FFFFFF; border-radius: 24px 24px 0 0; padding: 10px 12px 22px; display: flex; justify-content: space-around; box-shadow: 0 -4px 16px rgba(4,51,128,0.08)">
+    <a href="#Home" style="min-width: 64px; min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; font-size: 12px; font-weight: 500; color: #3B4C75">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B4C75" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11 12 4l8 7"/><path d="M6 10v10h12V10"/></svg>الرئيسية</a>
+    <a href="#Vitals" style="min-width: 64px; min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; font-size: 12px; font-weight: 500; color: #3B4C75">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B4C75" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3-6 4 12 3-6h4"/></svg>القياسات</a>
+    <a href="#LinkCaregiver" style="min-width: 64px; min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; font-size: 12px; font-weight: 700; color: #043380">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#043380" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><path d="M17 11v6M14 14h6"/></svg>المتابعون</a>
+  </div>
+</div>
+</section>
+<section class="screen" id="s-Alert" data-id="Alert">
+
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FFF4F4; font-family: 'Tajawal', sans-serif; color: #0B2559; display: flex; flex-direction: column; align-items: center; overflow: hidden; padding: 64px 24px 36px">
+  <div style="width: 72px; height: 72px; border-radius: 24px; background: #C62828; display: flex; align-items: center; justify-content: center">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/><path d="M8 12h2l1.5-3 2 5 1-2H17"/></svg>
+  </div>
+  <div style="margin-top: 18px; font-size: 27px; font-weight: 800; text-align: center">رصدنا حالة غير طبيعية</div>
+  <div style="margin-top: 8px; font-size: 16px; color: #5A3B3B; text-align: center; line-height: 1.7">نبض القلب ٣٨ نبضة/د، وهو أقل بكثير من المعتاد</div>
+  <div style="margin-top: 26px; width: 180px; height: 180px; border-radius: 50%; border: 10px solid #C62828; background: #FFFFFF; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center">
+    <div style="font-size: 68px; font-weight: 800; line-height: 1; color: #C62828">15</div>
+    <div style="font-size: 16px; color: #3B4C75; font-weight: 500">ثانية</div>
+  </div>
+  <div style="margin-top: 22px; background: #FFFFFF; border-radius: 18px; padding: 14px 16px; font-size: 15px; color: #2C3D66; line-height: 1.8; text-align: right">
+    إذا لم تضغط «أنا بخير» سنرسل تنبيهًا طارئًا لمقدم الرعاية تلقائيًا. وإن كانت الحالة حرجة سيُبلَّغ الإسعاف مع موقعك.
+  </div>
+  <div style="margin-top: auto; width: 100%; display: flex; flex-direction: column; gap: 10px">
+    <a href="#Home" style="display: flex; align-items: center; justify-content: center; min-height: 60px; border-radius: 20px; background: #1F7A4F; color: #FFFFFF; font-size: 22px; font-weight: 800; text-decoration: none">أنا بخير</a>
+    <a href="#AlertSent" style="display: flex; align-items: center; justify-content: center; min-height: 48px; border-radius: 16px; border: 1.5px solid #C62828; color: #8E1B1B; font-size: 15px; font-weight: 700; text-decoration: none; background: #FFFFFF">تجربة العرض: انتهى الوقت بدون استجابة</a>
+  </div>
+</div>
+</section>
+<section class="screen" id="s-AlertSent" data-id="AlertSent">
+
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F7F8FA; font-family: 'Tajawal', sans-serif; color: #0B2559; display: flex; flex-direction: column; align-items: center; overflow: hidden; padding: 64px 24px 36px">
+  <div style="width: 84px; height: 84px; border-radius: 50%; background: #1F7A4F; display: flex; align-items: center; justify-content: center">
+    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>
+  </div>
+  <div style="margin-top: 18px; font-size: 27px; font-weight: 800; text-align: center">تم إرسال التنبيه</div>
+  <div style="margin-top: 8px; font-size: 16px; color: #3B4C75; text-align: center; line-height: 1.7">ابقَ في مكانك واسترخِ، المساعدة في الطريق</div>
+  <div style="margin-top: 24px; width: 100%; display: flex; flex-direction: column; gap: 10px">
+    <div style="background: #FFFFFF; border-radius: 18px; padding: 14px 16px; display: flex; align-items: center; gap: 12px">
+      <div style="width: 28px; height: 28px; border-radius: 50%; background: #DDF3E6; display: flex; align-items: center; justify-content: center; flex: none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#115C38" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></div>
+      <div style="display: flex; flex-direction: column"><div style="font-size: 16px; font-weight: 700">مقدم الرعاية: سارة</div><div style="font-size: 13px; color: #3B4C75">وصلها تنبيه طارئ بحالتك</div></div>
+    </div>
+    <div style="background: #FFFFFF; border-radius: 18px; padding: 14px 16px; display: flex; align-items: center; gap: 12px">
+      <div style="width: 28px; height: 28px; border-radius: 50%; background: #DDF3E6; display: flex; align-items: center; justify-content: center; flex: none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#115C38" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></div>
+      <div style="display: flex; flex-direction: column"><div style="font-size: 16px; font-weight: 700">الإسعاف ٩٩٧</div><div style="font-size: 13px; color: #3B4C75">تم إبلاغهم لأن الحالة حرجة</div></div>
+    </div>
+    <div style="background: #FFFFFF; border-radius: 18px; padding: 14px 16px; display: flex; align-items: center; gap: 12px">
+      <div style="width: 28px; height: 28px; border-radius: 50%; background: #DDF3E6; display: flex; align-items: center; justify-content: center; flex: none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#115C38" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></div>
+      <div style="display: flex; flex-direction: column"><div style="font-size: 16px; font-weight: 700">موقعك الحالي</div><div style="font-size: 13px; color: #3B4C75">تمت مشاركته مع الإسعاف ومقدم الرعاية</div></div>
+    </div>
+  </div>
+  <div style="margin-top: auto; width: 100%; display: flex; flex-direction: column; gap: 10px">
+    <a href="tel:997" style="display: flex; align-items: center; justify-content: center; min-height: 56px; border-radius: 18px; background: #C62828; color: #FFFFFF; font-size: 18px; font-weight: 800; text-decoration: none">اتصال بالإسعاف ٩٩٧</a>
+    <a href="#Home" style="display: flex; align-items: center; justify-content: center; min-height: 48px; border-radius: 16px; border: 1.5px solid #043380; color: #043380; font-size: 15px; font-weight: 700; text-decoration: none; background: #FFFFFF">العودة للرئيسية</a>
+  </div>
+</div>
+</section>
+<section class="screen" id="s-Sos" data-id="Sos">
+
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FFF4F4; font-family: 'Tajawal', sans-serif; color: #0B2559; display: flex; flex-direction: column; align-items: center; overflow: hidden; padding: 72px 24px 36px">
+  <div style="width: 72px; height: 72px; border-radius: 24px; background: #C62828; display: flex; align-items: center; justify-content: center">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v5"/><path d="M12 17.5v.5"/></svg>
+  </div>
+  <div style="margin-top: 20px; font-size: 28px; font-weight: 800; text-align: center">جارٍ إرسال الاستغاثة</div>
+  <div style="margin-top: 10px; font-size: 16px; color: #5A3B3B; text-align: center; line-height: 1.7">سنُعلم مقدم الرعاية (سارة) أنك تشعر بتعب وتحتاج مساعدة</div>
+  <div style="margin-top: 34px; width: 190px; height: 190px; border-radius: 50%; border: 10px solid #C62828; background: #FFFFFF; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center">
+    <div style="font-size: 76px; font-weight: 800; line-height: 1; color: #C62828">5</div>
+    <div style="font-size: 16px; color: #3B4C75; font-weight: 500">ثوانٍ</div>
+  </div>
+  <div style="margin-top: 22px; font-size: 14px; color: #5A3B3B; text-align: center; line-height: 1.7">ضغطت بالخطأ؟ اضغط «إلغاء» قبل انتهاء العدّاد</div>
+  <div style="margin-top: auto; width: 100%; display: flex; flex-direction: column; gap: 12px">
+    <a href="#SosSent" style="display: flex; align-items: center; justify-content: center; min-height: 64px; border-radius: 20px; background: #C62828; color: #FFFFFF; font-size: 22px; font-weight: 800; text-decoration: none">أرسل الآن</a>
+    <a href="#Home" style="display: flex; align-items: center; justify-content: center; min-height: 56px; border-radius: 20px; border: 2px solid #043380; color: #043380; font-size: 18px; font-weight: 700; text-decoration: none; background: #FFFFFF">إلغاء</a>
+  </div>
+</div>
+</section>
+<section class="screen" id="s-SosSent" data-id="SosSent">
+
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F7F8FA; font-family: 'Tajawal', sans-serif; color: #0B2559; display: flex; flex-direction: column; align-items: center; overflow: hidden; padding: 72px 24px 36px">
+  <div style="width: 84px; height: 84px; border-radius: 50%; background: #1F7A4F; display: flex; align-items: center; justify-content: center">
+    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>
+  </div>
+  <div style="margin-top: 18px; font-size: 27px; font-weight: 800; text-align: center">تم إرسال استغاثتك</div>
+  <div style="margin-top: 8px; font-size: 16px; color: #3B4C75; text-align: center; line-height: 1.7">اجلس في مكان آمن واسترخِ، سارة في الطريق إليك</div>
+  <div style="margin-top: 26px; width: 100%; display: flex; flex-direction: column; gap: 10px">
+    <div style="background: #FFFFFF; border-radius: 18px; padding: 14px 16px; display: flex; align-items: center; gap: 12px">
+      <div style="width: 28px; height: 28px; border-radius: 50%; background: #DDF3E6; display: flex; align-items: center; justify-content: center; flex: none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#115C38" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></div>
+      <div style="display: flex; flex-direction: column"><div style="font-size: 16px; font-weight: 700">وصل التنبيه لسارة</div><div style="font-size: 13px; color: #3B4C75">استغاثة يدوية: أشعر بتعب</div></div>
+    </div>
+    <div style="background: #FFFFFF; border-radius: 18px; padding: 14px 16px; display: flex; align-items: center; gap: 12px">
+      <div style="width: 28px; height: 28px; border-radius: 50%; background: #DDF3E6; display: flex; align-items: center; justify-content: center; flex: none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#115C38" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></div>
+      <div style="display: flex; flex-direction: column"><div style="font-size: 16px; font-weight: 700">تمت مشاركة موقعك</div><div style="font-size: 13px; color: #3B4C75">وآخر قياسات الساعة معها</div></div>
+    </div>
+  </div>
+  <div style="margin-top: 14px; font-size: 14px; color: #3B4C75; text-align: center; line-height: 1.7">إذا ساءت حالتك أو لم ترد سارة، اتصل بالإسعاف مباشرة</div>
+  <div style="margin-top: auto; width: 100%; display: flex; flex-direction: column; gap: 10px">
+    <a href="tel:997" style="display: flex; align-items: center; justify-content: center; min-height: 56px; border-radius: 18px; background: #C62828; color: #FFFFFF; font-size: 18px; font-weight: 800; text-decoration: none">اتصال بالإسعاف ٩٩٧</a>
+    <a href="tel:0500000000" style="display: flex; align-items: center; justify-content: center; min-height: 52px; border-radius: 16px; background: #043380; color: #FFFFFF; font-size: 17px; font-weight: 700; text-decoration: none">اتصال بسارة</a>
+    <a href="#Home" style="display: flex; align-items: center; justify-content: center; min-height: 48px; border-radius: 16px; border: 1.5px solid #043380; color: #043380; font-size: 15px; font-weight: 700; text-decoration: none; background: #FFFFFF">العودة للرئيسية</a>
+  </div>
+</div>
+</section>
+<section class="screen" id="s-Caregiver" data-id="Caregiver">
+
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F7F8FA; font-family: 'Tajawal', sans-serif; color: #0B2559; display: flex; flex-direction: column; overflow: hidden">
+  <div style="padding: 56px 20px 0; display: flex; flex-direction: column; gap: 2px">
+    <div style="font-size: 14px; color: #3B4C75">مرحبًا، سارة</div>
+    <div style="font-size: 24px; font-weight: 800">لوحة مقدم الرعاية</div>
+  </div>
+  <div style="margin: 14px 20px 0; display: flex; gap: 12px">
+    <div style="flex: 1 1 0; background: #043380; border-radius: 20px; padding: 14px 16px; display: flex; flex-direction: column; gap: 2px">
+      <div style="font-size: 30px; font-weight: 800; color: #FFFFFF">٢</div>
+      <div style="font-size: 14px; color: #BFE0FA">مريضان أتابعهما</div>
+    </div>
+    <div style="flex: 1 1 0; background: #FFFFFF; border-radius: 20px; padding: 14px 16px; display: flex; flex-direction: column; gap: 2px">
+      <div style="font-size: 30px; font-weight: 800; color: #A51F1F">١</div>
+      <div style="font-size: 14px; color: #3B4C75">تنبيه نشط</div>
+    </div>
+  </div>
+  <div style="margin: 14px 20px 0; background: #FDECEC; border: 1.5px solid #E7A3A3; border-radius: 22px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+    <div style="display: flex; align-items: center; gap: 10px">
+      <div style="width: 40px; height: 40px; border-radius: 14px; background: #C62828; display: flex; align-items: center; justify-content: center; flex: none">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v5"/></svg>
+      </div>
+      <div style="display: flex; flex-direction: column">
+        <div style="font-size: 18px; font-weight: 800; color: #8E1B1B">أم محمد: اشتباه جلطة قلبية</div>
+        <div style="font-size: 14px; color: #5A3B3B">قبل ٣ دقائق · مستوى الخطورة: عالٍ</div>
+      </div>
+    </div>
+    <div style="display: flex; gap: 10px">
+      <a href="#CgEmergency" style="flex: 1 1 0; min-height: 48px; border-radius: 14px; background: #C62828; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; text-decoration: none">فتح التنبيه</a>
+      <a href="#CgVitals" style="flex: 1 1 0; min-height: 48px; border-radius: 14px; background: #FFFFFF; border: 1.5px solid #C62828; color: #8E1B1B; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; text-decoration: none">عرض الحالة</a>
+    </div>
+  </div>
+  <div style="margin: 18px 20px 8px; font-size: 18px; font-weight: 800">آخر الإشعارات</div>
+  <div style="margin: 0 20px; display: flex; flex-direction: column; gap: 10px">
+    <div style="background: #FFFFFF; border-radius: 18px; padding: 12px 16px; display: flex; align-items: center; gap: 12px">
+      <div style="width: 10px; height: 10px; border-radius: 50%; background: #B7791F; flex: none"></div>
+      <div style="display: flex; flex-direction: column; flex: 1 1 0">
+        <div style="font-size: 16px; font-weight: 700">أبو سعد: نبض مرتفع ١١٨</div>
+        <div style="font-size: 13px; color: #3B4C75">اليوم ٩:٤٠ ص · تم التسليم</div>
+      </div>
+    </div>
+    <div style="background: #FFFFFF; border-radius: 18px; padding: 12px 16px; display: flex; align-items: center; gap: 12px">
+      <div style="width: 10px; height: 10px; border-radius: 50%; background: #1F7A4F; flex: none"></div>
+      <div style="display: flex; flex-direction: column; flex: 1 1 0">
+        <div style="font-size: 16px; font-weight: 700">أم محمد: بطارية الساعة ١٥٪</div>
+        <div style="font-size: 13px; color: #3B4C75">الثلاثاء ١٠:٠٠ ص · تم التسليم</div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top: auto; background: #FFFFFF; border-radius: 24px 24px 0 0; padding: 10px 12px 22px; display: flex; justify-content: space-around; box-shadow: 0 -4px 16px rgba(4,51,128,0.08)">
+    <a href="#Caregiver" style="min-width: 64px; min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; font-size: 12px; font-weight: 700; color: #043380">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#043380" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11 12 4l8 7"/><path d="M6 10v10h12V10"/></svg>الرئيسية</a>
+    <a href="#CgPatients" style="min-width: 64px; min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; font-size: 12px; font-weight: 500; color: #3B4C75">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B4C75" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14c2.5 0 4 1.8 4 4.5"/></svg>المرضى</a>
+    <a href="#CgAlerts" style="min-width: 64px; min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; font-size: 12px; font-weight: 500; color: #3B4C75">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B4C75" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 17V11a6 6 0 0 1 12 0v6l2 2H4z"/><path d="M10 21h4"/></svg>التنبيهات</a>
+  </div>
+</div>
+</section>
+<section class="screen" id="s-CgPatients" data-id="CgPatients">
+
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F7F8FA; font-family: 'Tajawal', sans-serif; color: #0B2559; display: flex; flex-direction: column; overflow: hidden">
+  <div style="padding: 52px 20px 0; font-size: 24px; font-weight: 800">من أتابعهم</div>
+  <div style="flex: 1 1 0; min-height: 0; overflow-y: auto; padding-bottom: 12px">
+    <div style="margin: 12px 20px 0; background: #FFFFFF; border-radius: 22px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+      <label for="code" style="font-size: 14px; font-weight: 500; color: #3B4C75">إضافة مريض برمز الربط</label>
+      <input id="code" type="text" placeholder="أدخل الرمز من المريض" data-v="code" onchange="act('setCode',event)" style="min-height: 46px; box-sizing: border-box; border: 1.5px solid #C9D3E6; border-radius: 14px; padding: 0 14px; font-family: inherit; font-size: 16px; color: #0B2559; background: #FFFFFF; text-align: right">
+      <div data-if="showError" style="display:none">
+        <div style="font-size: 13px; font-weight: 700; color: #A51F1F">أدخل رمز الربط أولًا</div>
+      </div>
+      <div data-if="showAdded" style="display:none">
+        <div style="background: #DDF3E6; color: #115C38; border-radius: 12px; padding: 10px 12px; font-size: 14px; font-weight: 700">تمت إضافة المريض إلى قائمتك</div>
+      </div>
+      <button onclick="act('add',event)" style="min-height: 48px; border: 0; border-radius: 14px; background: #043380; color: #FFFFFF; font-family: inherit; font-size: 16px; font-weight: 700; cursor: pointer">إضافة</button>
+    </div>
+    <div style="margin: 14px 20px 0; display: flex; flex-direction: column; gap: 12px">
+      <template data-for="patients" data-as="p">
+        <a href="{{p.href}}" style="background: #FFFFFF; border-radius: 22px; padding: 16px; display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: inherit">
+          <div style="display: flex; align-items: center; justify-content: space-between">
+            <div style="font-size: 18px; font-weight: 800">{{p.name}}</div>
+            <div style="padding: 6px 12px; border-radius: 999px; background: {{p.bg}}; color: {{p.fg}}; font-size: 13px; font-weight: 700">{{p.badge}}</div>
+          </div>
+          <div style="display: flex; gap: 8px">
+            <div style="flex: 1 1 0; background: #F2F5FB; border-radius: 14px; padding: 10px; display: flex; flex-direction: column"><span style="font-size: 12px; color: #3B4C75">النبض</span><span style="font-size: 20px; font-weight: 800">{{p.hr}}</span></div>
+            <div style="flex: 1 1 0; background: #F2F5FB; border-radius: 14px; padding: 10px; display: flex; flex-direction: column"><span style="font-size: 12px; color: #3B4C75">الأكسجين</span><span style="font-size: 20px; font-weight: 800">{{p.ox}}</span></div>
+            <div style="flex: 1 1 0; background: #F2F5FB; border-radius: 14px; padding: 10px; display: flex; flex-direction: column"><span style="font-size: 12px; color: #3B4C75">البطارية</span><span style="font-size: 20px; font-weight: 800">{{p.bat}}</span></div>
+          </div>
+        </a>
+      </template><div data-slot="patients" style="display: contents"></div>
+    </div>
+  </div>
+  <div style="background: #FFFFFF; border-radius: 24px 24px 0 0; padding: 10px 12px 22px; display: flex; justify-content: space-around; box-shadow: 0 -4px 16px rgba(4,51,128,0.08)">
+    <a href="#Caregiver" style="min-width: 64px; min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; font-size: 12px; font-weight: 500; color: #3B4C75">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B4C75" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11 12 4l8 7"/><path d="M6 10v10h12V10"/></svg>الرئيسية</a>
+    <a href="#CgPatients" style="min-width: 64px; min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; font-size: 12px; font-weight: 700; color: #043380">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#043380" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14c2.5 0 4 1.8 4 4.5"/></svg>المرضى</a>
+    <a href="#CgAlerts" style="min-width: 64px; min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; font-size: 12px; font-weight: 500; color: #3B4C75">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B4C75" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 17V11a6 6 0 0 1 12 0v6l2 2H4z"/><path d="M10 21h4"/></svg>التنبيهات</a>
+  </div>
+</div>
+</section>
+<section class="screen" id="s-CgAlerts" data-id="CgAlerts">
+
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F7F8FA; font-family: 'Tajawal', sans-serif; color: #0B2559; display: flex; flex-direction: column; overflow: hidden">
+  <div style="padding: 52px 20px 0; font-size: 24px; font-weight: 800">سجل التنبيهات</div>
+  <div style="margin: 12px 20px 0; display: flex; flex-wrap: wrap; gap: 8px">
+    <button style="min-height: 44px; padding: 0 14px; border: 0; border-radius: 999px; background: #043380; color: #FFFFFF; font-family: inherit; font-size: 14px; font-weight: 700">الكل</button>
+    <button style="min-height: 44px; padding: 0 14px; border: 0; border-radius: 999px; background: #FFFFFF; color: #3B4C75; font-family: inherit; font-size: 14px; font-weight: 700">طارئة</button>
+    <button style="min-height: 44px; padding: 0 14px; border: 0; border-radius: 999px; background: #FFFFFF; color: #3B4C75; font-family: inherit; font-size: 14px; font-weight: 700">القياسات</button>
+    <button style="min-height: 44px; padding: 0 14px; border: 0; border-radius: 999px; background: #FFFFFF; color: #3B4C75; font-family: inherit; font-size: 14px; font-weight: 700">الجهاز</button>
+  </div>
+  <div style="flex: 1 1 0; min-height: 0; overflow-y: auto; padding-bottom: 12px">
+    <div style="margin: 12px 20px 0; display: flex; flex-direction: column; gap: 10px">
+      <a href="#CgEmergency" style="background: #FDECEC; border: 1.5px solid #E7A3A3; border-radius: 18px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: inherit">
+        <div style="display: flex; align-items: center; gap: 10px"><div style="width: 10px; height: 10px; border-radius: 50%; background: #C62828; flex: none"></div><div style="font-size: 16px; font-weight: 800">أم محمد: اشتباه جلطة قلبية</div></div>
+        <div style="font-size: 13px; color: #5A3B3B">الآن · حرجة · تم إبلاغ الإسعاف</div>
+        <div style="align-self: flex-start; padding: 5px 12px; border-radius: 999px; background: #C62828; color: #FFFFFF; font-size: 13px; font-weight: 700">افتح التنبيه</div>
+      </a>
+      <a href="#CgSos" style="background: #FFF8EC; border: 1.5px solid #E8C48A; border-radius: 18px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: inherit">
+        <div style="display: flex; align-items: center; gap: 10px"><div style="width: 10px; height: 10px; border-radius: 50%; background: #B7791F; flex: none"></div><div style="font-size: 16px; font-weight: 800">أم محمد: استغاثة يدوية</div></div>
+        <div style="font-size: 13px; color: #5A4A2B">اليوم ٩:٠٥ ص · تقول إنها تشعر بتعب</div>
+        <div style="align-self: flex-start; padding: 5px 12px; border-radius: 999px; background: #B7791F; color: #FFFFFF; font-size: 13px; font-weight: 700">افتح التنبيه</div>
+      </a>
+      <div style="background: #FFFFFF; border-radius: 18px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px">
+        <div style="display: flex; align-items: center; gap: 10px"><div style="width: 10px; height: 10px; border-radius: 50%; background: #B7791F; flex: none"></div><div style="font-size: 16px; font-weight: 700">أبو سعد: نبض مرتفع ١١٨</div></div>
+        <div style="font-size: 13px; color: #3B4C75">اليوم ٩:٤٠ ص · متوسطة</div>
+        <div style="align-self: flex-start; padding: 5px 12px; border-radius: 999px; background: #DDF3E6; color: #115C38; font-size: 13px; font-weight: 700">تمت المراجعة</div>
+      </div>
+      <div style="background: #FFFFFF; border-radius: 18px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px">
+        <div style="display: flex; align-items: center; gap: 10px"><div style="width: 10px; height: 10px; border-radius: 50%; background: #C62828; flex: none"></div><div style="font-size: 16px; font-weight: 700">أم محمد: سقوط محتمل</div></div>
+        <div style="font-size: 13px; color: #3B4C75">أمس ٩:١٢ م · عالية</div>
+        <div style="align-self: flex-start; padding: 5px 12px; border-radius: 999px; background: #DDF3E6; color: #115C38; font-size: 13px; font-weight: 700">تمت المراجعة</div>
+      </div>
+      <div style="background: #FFFFFF; border-radius: 18px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px">
+        <div style="display: flex; align-items: center; gap: 10px"><div style="width: 10px; height: 10px; border-radius: 50%; background: #1F7A4F; flex: none"></div><div style="font-size: 16px; font-weight: 700">أم محمد: بطارية الساعة ١٥٪</div></div>
+        <div style="font-size: 13px; color: #3B4C75">الثلاثاء ١٠:٠٠ ص · منخفضة</div>
+        <div style="align-self: flex-start; padding: 5px 12px; border-radius: 999px; background: #DDF3E6; color: #115C38; font-size: 13px; font-weight: 700">تمت المراجعة</div>
+      </div>
+    </div>
+  </div>
+  <div style="background: #FFFFFF; border-radius: 24px 24px 0 0; padding: 10px 12px 22px; display: flex; justify-content: space-around; box-shadow: 0 -4px 16px rgba(4,51,128,0.08)">
+    <a href="#Caregiver" style="min-width: 64px; min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; font-size: 12px; font-weight: 500; color: #3B4C75">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B4C75" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11 12 4l8 7"/><path d="M6 10v10h12V10"/></svg>الرئيسية</a>
+    <a href="#CgPatients" style="min-width: 64px; min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; font-size: 12px; font-weight: 500; color: #3B4C75">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B4C75" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14c2.5 0 4 1.8 4 4.5"/></svg>المرضى</a>
+    <a href="#CgAlerts" style="min-width: 64px; min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; font-size: 12px; font-weight: 700; color: #043380">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#043380" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 17V11a6 6 0 0 1 12 0v6l2 2H4z"/><path d="M10 21h4"/></svg>التنبيهات</a>
+  </div>
+</div>
+</section>
+<section class="screen" id="s-CgVitals" data-id="CgVitals">
+
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F7F8FA; font-family: 'Tajawal', sans-serif; color: #0B2559; display: flex; flex-direction: column; overflow: hidden">
+  <div style="padding: 52px 20px 0; display: flex; align-items: center; gap: 12px">
+    <a href="#CgPatients" aria-label="رجوع" style="width: 44px; height: 44px; border-radius: 14px; background: #FFFFFF; display: flex; align-items: center; justify-content: center">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#043380" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+    </a>
+    <div style="font-size: 24px; font-weight: 800">حالة أم محمد</div>
+  </div>
+  <div style="margin: 14px 20px 0; background: #043380; border-radius: 22px; padding: 16px; display: flex; align-items: center; justify-content: space-between">
+    <div style="display: flex; flex-direction: column; gap: 2px">
+      <div style="font-size: 18px; font-weight: 800; color: #FFFFFF">آخر قياس: اليوم ١:٢٣ م</div>
+      <div style="font-size: 14px; color: #BFE0FA">ساعة سَنَد · بطارية ٨٢٪</div>
+    </div>
+    <a href="#Caregiver" style="min-height: 44px; padding: 0 16px; border-radius: 14px; background: #FFFFFF; color: #043380; display: flex; align-items: center; font-size: 15px; font-weight: 700; text-decoration: none">اتصال</a>
+  </div>
+  <div style="margin: 12px 20px 0; background: #FFFFFF; border-radius: 22px; padding: 16px 16px 12px; display: flex; flex-direction: column; gap: 12px">
+    <div style="display: flex; justify-content: space-between; align-items: baseline">
+      <div style="font-size: 16px; font-weight: 700">نبض القلب اليوم</div>
+      <div style="font-size: 14px; color: #3B4C75">المتوسط <span style="font-weight: 800; color: #0B2559">74</span></div>
+    </div>
+    <div style="height: 130px; display: flex; align-items: flex-end; gap: 8px">
+      <div style="flex: 1 1 0; height: 52%; background: #72B8EE; border-radius: 8px 8px 0 0"></div>
+      <div style="flex: 1 1 0; height: 58%; background: #72B8EE; border-radius: 8px 8px 0 0"></div>
+      <div style="flex: 1 1 0; height: 66%; background: #72B8EE; border-radius: 8px 8px 0 0"></div>
+      <div style="flex: 1 1 0; height: 80%; background: #043380; border-radius: 8px 8px 0 0"></div>
+      <div style="flex: 1 1 0; height: 70%; background: #72B8EE; border-radius: 8px 8px 0 0"></div>
+      <div style="flex: 1 1 0; height: 62%; background: #72B8EE; border-radius: 8px 8px 0 0"></div>
+      <div style="flex: 1 1 0; height: 56%; background: #72B8EE; border-radius: 8px 8px 0 0"></div>
+    </div>
+  </div>
+  <div style="margin: 12px 20px 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+    <div style="background: #FFFFFF; border-radius: 20px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
+      <div style="font-size: 14px; color: #3B4C75; font-weight: 500">الأكسجين</div>
+      <div style="font-size: 28px; font-weight: 800">97%</div>
+    </div>
+    <div style="background: #FDECEC; border-radius: 20px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
+      <div style="font-size: 14px; color: #5A3B3B; font-weight: 500">السقوط</div>
+      <div style="font-size: 18px; font-weight: 800; color: #8E1B1B; padding-top: 4px">سقوط محتمل</div>
+    </div>
+  </div>
+  <div style="margin-top: auto; background: #FFFFFF; border-radius: 24px 24px 0 0; padding: 10px 12px 22px; display: flex; justify-content: space-around; box-shadow: 0 -4px 16px rgba(4,51,128,0.08)">
+    <a href="#Caregiver" style="min-width: 64px; min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; font-size: 12px; font-weight: 500; color: #3B4C75">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B4C75" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11 12 4l8 7"/><path d="M6 10v10h12V10"/></svg>الرئيسية</a>
+    <a href="#CgPatients" style="min-width: 64px; min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; font-size: 12px; font-weight: 700; color: #043380">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#043380" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14c2.5 0 4 1.8 4 4.5"/></svg>المرضى</a>
+    <a href="#CgAlerts" style="min-width: 64px; min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; font-size: 12px; font-weight: 500; color: #3B4C75">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B4C75" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 17V11a6 6 0 0 1 12 0v6l2 2H4z"/><path d="M10 21h4"/></svg>التنبيهات</a>
+  </div>
+</div>
+</section>
+<section class="screen" id="s-CgEmergency" data-id="CgEmergency">
+
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FFF4F4; font-family: 'Tajawal', sans-serif; color: #0B2559; display: flex; flex-direction: column; overflow: hidden">
+  <div style="background: #B71C1C; border-radius: 0 0 36px 36px; padding: 48px 20px 24px; display: flex; flex-direction: column; align-items: center; gap: 8px; position: relative">
+    <a href="#Caregiver" style="position: absolute; top: 48px; left: 20px; min-height: 40px; padding: 0 16px; border-radius: 999px; background: rgba(255,255,255,0.18); color: #FFFFFF; display: flex; align-items: center; font-size: 14px; font-weight: 700; text-decoration: none">إغلاق</a>
+    <div style="width: 64px; height: 64px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; margin-top: 4px">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#B71C1C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 17V11a6 6 0 0 1 12 0v6l2 2H4z"/><path d="M10 21h4"/></svg>
+    </div>
+    <div style="font-size: 15px; font-weight: 700; color: #FFD6D6">تنبيه طارئ · الآن</div>
+    <div style="font-size: 34px; font-weight: 800; color: #FFFFFF; line-height: 1.1">أم محمد</div>
+    <div style="font-size: 18px; font-weight: 700; color: #FFFFFF; text-align: center">حالة حرجة: اشتباه جلطة قلبية</div>
+  </div>
+  <div style="margin: 14px 20px 0; display: flex; gap: 10px">
+    <div style="flex: 1 1 0; background: #FFFFFF; border-radius: 16px; padding: 12px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; color: #3B4C75">النبض</span><span style="font-size: 24px; font-weight: 800; color: #A51F1F">٣٨</span></div>
+    <div style="flex: 1 1 0; background: #FFFFFF; border-radius: 16px; padding: 12px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; color: #3B4C75">الأكسجين</span><span style="font-size: 24px; font-weight: 800; color: #A51F1F">٨٤٪</span></div>
+    <div style="flex: 1 1 0; background: #FFFFFF; border-radius: 16px; padding: 12px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; color: #3B4C75">الخطورة</span><span style="font-size: 24px; font-weight: 800; color: #A51F1F">حرجة</span></div>
+  </div>
+  <div style="margin: 12px 20px 0; background: #FFFFFF; border-radius: 18px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px">
+    <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 700"><span style="width: 22px; height: 22px; border-radius: 50%; background: #DDF3E6; color: #115C38; display: flex; align-items: center; justify-content: center; font-size: 13px">✓</span>تم إبلاغ الإسعاف تلقائيًا</div>
+    <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 700"><span style="width: 22px; height: 22px; border-radius: 50%; background: #DDF3E6; color: #115C38; display: flex; align-items: center; justify-content: center; font-size: 13px">✓</span>تمت مشاركة موقع المريض معك</div>
+    <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 700"><span style="width: 22px; height: 22px; border-radius: 50%; background: #DDF3E6; color: #115C38; display: flex; align-items: center; justify-content: center; font-size: 13px">✓</span>ساعة سَنَد متصلة وتعمل</div>
+  </div>
+  <div data-if="acked" style="display:none">
+    <div style="margin: 10px 20px 0; background: #DDF3E6; color: #115C38; border-radius: 12px; padding: 10px 12px; font-size: 14px; font-weight: 700">تم تسجيل استلامك، وعلم المريض والإسعاف أنك في الطريق</div>
+  </div>
+  <div style="margin: auto 20px 28px; display: flex; flex-direction: column; gap: 10px">
+    <a href="tel:997" style="display: flex; align-items: center; justify-content: center; min-height: 56px; border-radius: 18px; background: #C62828; color: #FFFFFF; font-size: 18px; font-weight: 800; text-decoration: none">اتصال بالإسعاف ٩٩٧</a>
+    <a href="tel:0500000000" style="display: flex; align-items: center; justify-content: center; min-height: 52px; border-radius: 16px; background: #043380; color: #FFFFFF; font-size: 17px; font-weight: 700; text-decoration: none">اتصال بأم محمد</a>
+    <button onclick="act('ack',event)" style="min-height: 50px; border: 1.5px solid #043380; border-radius: 16px; background: #FFFFFF; color: #043380; font-family: inherit; font-size: 16px; font-weight: 700; cursor: pointer"><span data-t="ackLabel"></span></button>
+  </div>
+</div>
+</section>
+<section class="screen" id="s-CgSos" data-id="CgSos">
+
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FFF4F4; font-family: 'Tajawal', sans-serif; color: #0B2559; display: flex; flex-direction: column; overflow: hidden">
+  <div style="background: #C62828; border-radius: 0 0 36px 36px; padding: 48px 20px 24px; display: flex; flex-direction: column; align-items: center; gap: 8px; position: relative">
+    <a href="#Caregiver" style="position: absolute; top: 48px; left: 20px; min-height: 40px; padding: 0 16px; border-radius: 999px; background: rgba(255,255,255,0.18); color: #FFFFFF; display: flex; align-items: center; font-size: 14px; font-weight: 700; text-decoration: none">إغلاق</a>
+    <div style="width: 64px; height: 64px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; margin-top: 4px">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#C62828" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v5"/><path d="M12 17.5v.5"/></svg>
+    </div>
+    <div style="font-size: 15px; font-weight: 700; color: #FFD6D6">استغاثة يدوية · الآن</div>
+    <div style="font-size: 34px; font-weight: 800; color: #FFFFFF; line-height: 1.1">أم محمد</div>
+    <div style="font-size: 18px; font-weight: 700; color: #FFFFFF; text-align: center">تقول إنها تشعر بتعب وتحتاج مساعدة</div>
+  </div>
+  <div style="margin: 14px 20px 0; background: #FFF1D6; border-radius: 16px; padding: 12px 14px; font-size: 14px; font-weight: 700; color: #7A4B00; line-height: 1.7">الساعة لم ترصد أي خلل، فالتنبيه أرسلته المريضة بنفسها</div>
+  <div style="margin: 12px 20px 0; display: flex; gap: 10px">
+    <div style="flex: 1 1 0; background: #FFFFFF; border-radius: 16px; padding: 12px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; color: #3B4C75">النبض</span><span style="font-size: 24px; font-weight: 800">٧٤</span></div>
+    <div style="flex: 1 1 0; background: #FFFFFF; border-radius: 16px; padding: 12px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; color: #3B4C75">الأكسجين</span><span style="font-size: 24px; font-weight: 800">٩٦٪</span></div>
+    <div style="flex: 1 1 0; background: #FFFFFF; border-radius: 16px; padding: 12px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; color: #3B4C75">الحالة</span><span style="font-size: 24px; font-weight: 800">طبيعي</span></div>
+  </div>
+  <div style="margin: 12px 20px 0; background: #FFFFFF; border-radius: 18px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px">
+    <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 700"><span style="width: 22px; height: 22px; border-radius: 50%; background: #DDF3E6; color: #115C38; display: flex; align-items: center; justify-content: center; font-size: 13px">✓</span>تمت مشاركة موقع المريضة معك</div>
+    <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 700"><span style="width: 22px; height: 22px; border-radius: 50%; background: #DDF3E6; color: #115C38; display: flex; align-items: center; justify-content: center; font-size: 13px">✓</span>لم يُبلَّغ الإسعاف، قرّر أنت</div>
+  </div>
+  <div data-if="acked" style="display:none">
+    <div style="margin: 10px 20px 0; background: #DDF3E6; color: #115C38; border-radius: 12px; padding: 10px 12px; font-size: 14px; font-weight: 700">تم تسجيل استلامك، وعلمت المريضة أنك في الطريق</div>
+  </div>
+  <div style="margin: auto 20px 28px; display: flex; flex-direction: column; gap: 10px">
+    <a href="tel:0500000000" style="display: flex; align-items: center; justify-content: center; min-height: 56px; border-radius: 18px; background: #043380; color: #FFFFFF; font-size: 18px; font-weight: 800; text-decoration: none">اتصال بأم محمد</a>
+    <a href="tel:997" style="display: flex; align-items: center; justify-content: center; min-height: 52px; border-radius: 16px; background: #C62828; color: #FFFFFF; font-size: 17px; font-weight: 700; text-decoration: none">اتصال بالإسعاف ٩٩٧</a>
+    <button onclick="act('ack',event)" style="min-height: 50px; border: 1.5px solid #043380; border-radius: 16px; background: #FFFFFF; color: #043380; font-family: inherit; font-size: 16px; font-weight: 700; cursor: pointer"><span data-t="ackLabel"></span></button>
+  </div>
+</div>
+</section>
+</div>
+<script>
+const LOGIC = {};
+const INST = {};
+class DCLogic {
+  constructor() { this.props = {}; }
+  setState(p) { Object.assign(this.state, p); render(this.__id); }
+}
+LOGIC['Main'] = (function(){ 
+class Component extends DCLogic {
+state = { role: 'patient' };
+renderVals() {
+const p = this.state.role === 'patient';
+return {
+isPatient: p,
+isCaregiver: !p,
+patientBg: p ? '#043380' : 'transparent',
+patientColor: p ? '#FFFFFF' : '#3B4C75',
+caregiverBg: p ? 'transparent' : '#043380',
+caregiverColor: p ? '#3B4C75' : '#FFFFFF',
+loginHref: p ? 'Home.dc.html' : 'Caregiver.dc.html',
+pickPatient: () => this.setState({ role: 'patient' }),
+pickCaregiver: () => this.setState({ role: 'caregiver' })
+};
+}
+}
+
+return Component; })();
+LOGIC['LinkDevice'] = (function(){ 
+class Component extends DCLogic {
+state = { wid: '', linked: false, showError: false };
+renderVals() {
+const l = this.state.linked;
+return {
+wid: this.state.wid,
+showError: this.state.showError,
+statusTitle: l ? 'ساعة سَنَد متصلة' : 'ساعة سَنَد غير مرتبطة',
+statusSub: l ? 'بطارية ٨٢٪ · آخر اتصال الآن' : 'اتبع الخطوات أدناه لربط ساعتك',
+btnLabel: l ? 'تم الربط بنجاح' : 'ربط الساعة',
+btnBg: l ? '#1F7A4F' : '#043380',
+setWid: (e) => this.setState({ wid: e.target.value, showError: false }),
+link: () => {
+if (this.state.wid.trim().length === 0) { this.setState({ showError: true }); return; }
+this.setState({ linked: true, showError: false });
+}
+};
+}
+}
+
+return Component; })();
+LOGIC['LinkCaregiver'] = (function(){ 
+class Component extends DCLogic {
+state = { name: '', phone: '', relation: '', invites: [], showError: false, showSent: false };
+renderVals() {
+const base = [
+{ title: 'سارة (ابنة)', phone: '05xxxxxxxx', badge: 'مرتبطة', bg: '#DDF3E6', fg: '#115C38' },
+{ title: 'خالد (ابن)', phone: '05xxxxxxxx', badge: 'بانتظار القبول', bg: '#FFF1D6', fg: '#7A4B00' }
+];
+const extra = this.state.invites.map((i) => ({ title: i.title, phone: i.phone, badge: 'بانتظار القبول', bg: '#FFF1D6', fg: '#7A4B00' }));
+return {
+name: this.state.name,
+phone: this.state.phone,
+relation: this.state.relation,
+showError: this.state.showError,
+showSent: this.state.showSent,
+rows: extra.concat(base),
+setName: (e) => this.setState({ name: e.target.value, showError: false }),
+setPhone: (e) => this.setState({ phone: e.target.value, showError: false }),
+setRelation: (e) => this.setState({ relation: e.target.value }),
+send: () => {
+const s = this.state;
+if (s.name.trim().length === 0 || s.phone.trim().length === 0) { this.setState({ showError: true, showSent: false }); return; }
+const title = s.relation.trim().length > 0 ? s.name.trim() + ' (' + s.relation.trim() + ')' : s.name.trim();
+this.setState({ invites: [{ title: title, phone: s.phone.trim() }].concat(s.invites), name: '', phone: '', relation: '', showError: false, showSent: true });
+}
+};
+}
+}
+
+return Component; })();
+LOGIC['CgPatients'] = (function(){ 
+class Component extends DCLogic {
+state = { code: '', added: [], showError: false, showAdded: false };
+renderVals() {
+const base = [
+{ name: 'أم محمد', badge: 'تنبيه نشط', bg: '#FDECEC', fg: '#8E1B1B', hr: '72', ox: '97%', bat: '82%', href: 'CgVitals.dc.html' },
+{ name: 'أبو سعد', badge: 'مستقر', bg: '#DDF3E6', fg: '#115C38', hr: '80', ox: '96%', bat: '64%', href: 'CgVitals.dc.html' }
+];
+const extra = this.state.added.map((c) => ({ name: 'مريض جديد (' + c + ')', badge: 'تمت الإضافة', bg: '#E3EEFB', fg: '#043380', hr: '--', ox: '--', bat: '--', href: 'CgVitals.dc.html' }));
+return {
+code: this.state.code,
+showError: this.state.showError,
+showAdded: this.state.showAdded,
+patients: extra.concat(base),
+setCode: (e) => this.setState({ code: e.target.value, showError: false }),
+add: () => {
+const c = this.state.code.trim();
+if (c.length === 0) { this.setState({ showError: true, showAdded: false }); return; }
+this.setState({ added: [c].concat(this.state.added), code: '', showError: false, showAdded: true });
+}
+};
+}
+}
+
+return Component; })();
+LOGIC['CgEmergency'] = (function(){ 
+class Component extends DCLogic {
+state = { acked: false };
+renderVals() {
+return {
+acked: this.state.acked,
+ackLabel: this.state.acked ? 'تم الاستلام' : 'تأكيد الاستلام',
+ack: () => this.setState({ acked: true })
+};
+}
+}
+
+return Component; })();
+LOGIC['CgSos'] = (function(){ 
+class Component extends DCLogic {
+state = { acked: false };
+renderVals() {
+return {
+acked: this.state.acked,
+ackLabel: this.state.acked ? 'تم الاستلام' : 'تأكيد الاستلام',
+ack: () => this.setState({ acked: true })
+};
+}
+}
+
+return Component; })();
+function toHash(v) { return String(v).replace(/([A-Za-z]+)\.dc\.html/g, '#$1'); }
+function render(id) {
+  const inst = INST[id]; if (!inst) return;
+  const vals = inst.renderVals();
+  inst.__vals = vals;
+  const s = document.getElementById('s-' + id);
+  for (const k in vals) { const v = vals[k]; if (typeof v === 'string' || typeof v === 'number') s.style.setProperty('--' + k, v); }
+  s.querySelectorAll('[data-t]').forEach(e => { const v = vals[e.dataset.t]; e.textContent = v == null ? '' : v; });
+  s.querySelectorAll('[data-if]').forEach(e => { e.style.display = vals[e.dataset.if] ? '' : 'none'; });
+  s.querySelectorAll('[data-href]').forEach(e => { const v = vals[e.dataset.href]; if (v) e.setAttribute('href', toHash(v)); });
+  s.querySelectorAll('[data-v]').forEach(e => { const v = vals[e.dataset.v]; if (v != null && e.value !== v) e.value = v; });
+  s.querySelectorAll('template[data-for]').forEach(t => {
+    const list = vals[t.dataset.for] || [];
+    const as = t.dataset.as;
+    const slot = s.querySelector('[data-slot="' + t.dataset.for + '"]');
+    const re = new RegExp('\\{\\{' + as + '\\.(\\w+)\\}\\}', 'g');
+    slot.innerHTML = list.map(item => toHash(t.innerHTML.replace(re, (m, k) => item[k] == null ? '' : item[k]))).join('');
+  });
+}
+function act(name, ev) {
+  const id = ev.currentTarget.closest('.screen').dataset.id;
+  const vals = INST[id].__vals;
+  if (vals && typeof vals[name] === 'function') vals[name](ev);
+}
+function show() {
+  const id = (location.hash || '#Main').slice(1);
+  const sc = document.getElementById('s-' + id) || document.getElementById('s-Main');
+  document.querySelectorAll('.screen').forEach(x => x.classList.remove('active'));
+  sc.classList.add('active');
+  sc.querySelectorAll('.screen-scroll,[style*="overflow-y"]').forEach(e => { e.scrollTop = 0; });
+}
+function fit() {
+  const w = window.innerWidth, h = window.innerHeight;
+  const s = Math.min(w / 390, h / 844);
+  document.getElementById('stage').style.transform = 'translate(' + ((w - 390 * s) / 2) + 'px,' + ((h - 844 * s) / 2) + 'px) scale(' + s + ')';
+}
+for (const id in LOGIC) { INST[id] = new LOGIC[id](); INST[id].__id = id; render(id); }
+window.addEventListener('hashchange', show);
+window.addEventListener('resize', fit);
+fit(); show();
+</script>
+</body>
+</html>
